@@ -2,6 +2,8 @@ import react, { useState } from "react";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 
+import './App.css';
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState("");
@@ -12,10 +14,10 @@ function App() {
   };
 
   return (
-    <react.Fragment>
+    <div className="app-body">
       {!isLoggedIn && <Login onLogin={loginHandler} />}
       {isLoggedIn && <Dashboard username={user} />}
-    </react.Fragment>
+    </div>
   );
 }
 
