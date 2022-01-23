@@ -1,0 +1,19 @@
+.open-form-button {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 50px;
+  background: #0b75d8;
+  font-size: 2rem;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.list-section {
+  margin-top: 1rem;
+  background: white;
+  height: auto;
+  width: 90%;
+  border-radius: 20px;
+}
