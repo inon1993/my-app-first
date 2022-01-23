@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import classes from './LoginForm.module.css';
 
 const LoginForm = (props) => {
   const [isInputValid, setIsInputValid] = useState(true);
@@ -18,13 +19,13 @@ const LoginForm = (props) => {
   };
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <label>Username:</label>
-      <input type="text" ref={unRef} />
-      <label>Password:</label>
-      <input type="password" ref={passRef} />
-      <button type="submit">Click to Login!</button>
-      {!isInputValid && <p>Please enter valid Username and Password.</p>}
+    <form className={classes['login-form']} onSubmit={formSubmitHandler}>
+      <label className={classes.username}>Username:</label>
+      <input className={classes['un-input']} type="text" ref={unRef} />
+      <label className={classes.password}>Password:</label>
+      <input className={classes['pw-input']} type="password" ref={passRef} />
+      <button className={classes['login-button']} type="submit">Click to Login!</button>
+      {!isInputValid && <p className={classes['invalid-login-msg']}>Please enter valid Username and Password.</p>}
     </form>
   );
 };
