@@ -17,3 +17,9 @@
     color: #131313;
 
 }
+
+@media only screen and (max-width: 600px) {
+    .login-card {
+        width: 360px;
+    }
+  }

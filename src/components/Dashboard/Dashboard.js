@@ -7,10 +7,13 @@ const Dashboard = (props) => {
   const user = props.username;
 
   return (
-    <div className={classes.dashboard}>
+    <div className={classes['dashboard-wrapper']}>
+      <div className={classes.dashboard}>
       <h1 className={classes["hello-user"]}>Hello, {user}</h1>
       <ReminderSection />
     </div>
+    </div>
+    
   );
 };
 

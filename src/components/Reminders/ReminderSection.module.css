@@ -10,10 +10,21 @@
   cursor: pointer;
 }
 
+.open-form-button:hover {
+  background: #0d87fa;
+}
+
 .list-section {
+  display: flex;
+  justify-content: center;
   margin-top: 1rem;
-  background: white;
+  background: rgba(255, 255, 255, 0.7);
   height: auto;
-  width: 90%;
+  width: 100%;
   border-radius: 20px;
+}
+
+.ul {
+  width: 100%;
+  padding: 0 5%;
 }
