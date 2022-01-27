@@ -16,8 +16,10 @@ const AddReminderForm = (props) => {
     const title = titleRef.current.value;
     const body = bodyRef.current.value;
 
-    // console.log(title);
     props.onAddReminder(title, body);
+
+    titleRef.current.value = '';
+    bodyRef.current.value = '';
   };
 
   return (
