@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
 import axios from 'axios';
 
 import Card from "../UI/Card";
@@ -11,6 +11,21 @@ const ReminderSection = (props) => {
   const [isClicked, setIsClicked] = useState(false);
   const [reminderList, setReminderList] = useState([]);
   // const [state, setState] = useState({title: '', body: ''});
+
+  useEffect(() => {
+    getReminders();
+  }, []);
+
+  const getReminders = () => {
+    axios.get('/api')
+    .then((response) => {
+      setReminderList(response.data.reverse());
+      console.log('Data has been received.');
+    })
+    .catch(() => {
+      console.log('Error retrieving data!');
+    });
+  }
 
   const openFormHandler = () => {
     setIsClicked(true);
@@ -31,7 +46,7 @@ const ReminderSection = (props) => {
       body: body
     };
 
-    console.log('check: ', payload);
+    // console.log('check: ', payload);
 
     axios({
       url: '/api/save',
@@ -40,6 +55,7 @@ const ReminderSection = (props) => {
     })
     .then(() => {
       console.log('Data has been sent to the server.');
+      getReminders();
     })
     .catch(() => {
       console.log('Internal server error.');
@@ -70,7 +86,7 @@ const ReminderSection = (props) => {
       <div className={classes["list-section"]}>
         <ul className={classes.ul}>
           {reminderList.map((reminder) => {
-            return <Reminder title={reminder.title} body={reminder.body} />;
+            return <Reminder key={reminder._id} title={reminder.title} body={reminder.body} />;
           })}
         </ul>
       </div>
