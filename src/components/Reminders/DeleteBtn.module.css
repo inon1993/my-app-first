@@ -1,0 +1,11 @@
+.delete {
+    height: 60px;
+    width: 60px;
+    border-radius: 20px;
+}
+
+/* still not working */
+.icon {
+    size: 50rem;
+
+}
