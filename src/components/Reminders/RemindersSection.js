@@ -67,6 +67,26 @@ const ReminderSection = (props) => {
     
   };
 
+  const deleteReminderFromList = (id) => {
+
+    const reminderId = {
+      id: id
+    };
+    console.log(reminderId);
+    axios({
+      url: '/api/delete',
+      method: 'DELETE',
+      data: reminderId
+    })
+    .then(() => {
+      console.log('Data has been deleted successfully.');
+      getReminders();
+    })
+    .catch(() => {
+      console.log('Delete error.');
+    });
+  };
+
   return (
     <react.Fragment>
       {!isClicked && (
@@ -86,7 +106,7 @@ const ReminderSection = (props) => {
       <div className={classes["list-section"]}>
         <ul className={classes.ul}>
           {reminderList.map((reminder) => {
-            return <Reminder key={reminder._id} title={reminder.title} body={reminder.body} />;
+            return <Reminder key={reminder._id} id={reminder._id} title={reminder.title} body={reminder.body} onDeleteReminder={deleteReminderFromList} />;
           })}
         </ul>
       </div>
