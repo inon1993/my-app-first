@@ -18,21 +18,26 @@ const AddReminderForm = (props) => {
 
     props.onAddReminder(title, body);
 
-    titleRef.current.value = '';
-    bodyRef.current.value = '';
+    titleRef.current.value = "";
+    bodyRef.current.value = "";
   };
 
   return (
     <Card>
       <form className={classes["add-reminder-form"]}>
         <label className={classes.title}>Title</label>
-        <input className={classes["title-input"]} ref={titleRef} />
+        <input
+          className={classes["title-input"]}
+          ref={titleRef}
+          maxLength="15"
+        />
         <label className={classes.body}>Reminder Body</label>
         <textarea
           className={classes["body-input"]}
           rows="10"
           cols="50"
           ref={bodyRef}
+          maxLength="50"
         />
         <div className={classes.buttons}>
           <button

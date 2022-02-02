@@ -1,11 +1,19 @@
 .delete {
-    height: 60px;
-    width: 60px;
-    border-radius: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background: #0b75d8;
+  color: white;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background: #0d87fa;
 }
 
 /* still not working */
 .icon {
-    size: 50rem;
-
+  size: 50rem;
 }
