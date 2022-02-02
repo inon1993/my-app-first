@@ -1,25 +1,23 @@
 .login-card {
-    height: 420px;
-    width: 360px;
-    /* position: absolute; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
+  height: 420px;
+  width: 360px;
+  /* position: absolute; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-hello {
-    text-align: center;
-    padding: 0 0 0 0;
-    margin: 2rem 0 0 0;
-    font-size: 2.5rem;
-    color: #131313;
-
+  text-align: center;
+  padding: 0 0 0 0;
+  margin: 2rem 0 0 0;
+  font-size: 2.5rem;
+  color: #131313;
 }
 
 @media only screen and (max-width: 600px) {
-    .login-card {
-        width: 360px;
-    }
+  .login-card {
+    width: 80vw;
   }
+}

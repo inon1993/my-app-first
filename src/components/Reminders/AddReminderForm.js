@@ -29,7 +29,7 @@ const AddReminderForm = (props) => {
         <input
           className={classes["title-input"]}
           ref={titleRef}
-          maxLength="15"
+          // maxLength="15"
         />
         <label className={classes.body}>Reminder Body</label>
         <textarea
@@ -37,7 +37,7 @@ const AddReminderForm = (props) => {
           rows="10"
           cols="50"
           ref={bodyRef}
-          maxLength="50"
+          // maxLength="50"
         />
         <div className={classes.buttons}>
           <button
