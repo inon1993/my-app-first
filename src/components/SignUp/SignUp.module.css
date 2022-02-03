@@ -1,0 +1,23 @@
+.sign-up-card {
+    height: auto;
+    width: 560px;
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .sign-up-hello {
+    text-align: center;
+    padding: 0 0 0 0;
+    margin: 1rem 0 0 0;
+    font-size: 2.5rem;
+    color: #131313;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .sign-up-card {
+      width: 80vw;
+    }
+  }
