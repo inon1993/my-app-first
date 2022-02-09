@@ -6,8 +6,7 @@ import classes from "./SignUp.module.css";
 import AuthContext from "../../store/auth-context";
 
 const SignUp = (props) => {
-
-  const ctx = useContext(AuthContext)
+  const ctx = useContext(AuthContext);
 
   const [isUsernameExist, setIsUsernameExist] = useState(false);
 
@@ -31,7 +30,8 @@ const SignUp = (props) => {
         } else {
           setIsUsernameExist(false);
           console.log("Data has been sent to the server.");
-          ctx.onLogin();
+          ctx.onLogin(payload);
+          props.onClose();
         }
       })
       .catch(() => {

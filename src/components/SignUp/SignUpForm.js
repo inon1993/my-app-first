@@ -155,6 +155,12 @@ const SignUpForm = (props) => {
   const newUserHandler = (event) => {
     event.preventDefault();
 
+    validateFnameHandler();
+    validateLnameHandler();
+    validateEmailHandler();
+    validateUsernameHandler();
+    validatePasswordHandler();
+
     if (formIsValid) {
       props.onSignUp(
         fnameState.value,
