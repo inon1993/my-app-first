@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import classes from './LoginForm.module.css';
+import axios from "axios";
 
 const LoginForm = (props) => {
   const [isInputValid, setIsInputValid] = useState(true);
@@ -15,7 +16,7 @@ const LoginForm = (props) => {
       setIsInputValid(false);
       return;
     }
-    props.onLoginForm(username);
+    props.onLoginForm(username, password);
   };
 
   return (

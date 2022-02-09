@@ -1,0 +1,28 @@
+.logout {
+    margin-top: 1rem;
+    display: flex;
+    height: 60px;
+    width: auto;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background: #0b75d8;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1rem;
+  }
+  
+  .logout:hover {
+    background: #ff1919;
+  }
+  
+  /* still not working */
+  .icon {
+    size: 50rem;
+    padding: 1rem 1rem 1rem 0.5rem;
+  }
+  
