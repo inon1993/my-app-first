@@ -36,6 +36,7 @@ const Reminder = (props) => {
         <div className={classes.reminder} onClick={openReminderHandler}>
           <h1 className={classes["reminder-title"]}>{props.title}</h1>
           <p className={classes["reminder-body"]}>{props.body}</p>
+          <p className={classes["reminder-date"]}>{props.date}</p>
         </div>
 
         <div className={classes["del-area"]}>

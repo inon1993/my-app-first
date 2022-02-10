@@ -1,12 +1,14 @@
-import react, { useState, useEffect } from "react";
+import react, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 import AddReminderForm from "./AddReminderForm";
 import Reminder from "./Reminder";
+import AuthContext from "../../store/auth-context";
 
 import classes from "./ReminderSection.module.css";
 
 const ReminderSection = (props) => {
+  const ctx = useContext(AuthContext);
   const [isClicked, setIsClicked] = useState(false);
   const [reminderList, setReminderList] = useState([]);
 
@@ -16,7 +18,7 @@ const ReminderSection = (props) => {
 
   const getReminders = () => {
     axios
-      .get("/api")
+      .get("/api", { params: { username: ctx.username } })
       .then((response) => {
         setReminderList(response.data.reverse());
         console.log("Data has been received.");
@@ -34,10 +36,12 @@ const ReminderSection = (props) => {
     setIsClicked(false);
   };
 
-  const addReminderToListHandler = (title, body) => {
+  const addReminderToListHandler = (title, body, date) => {
     const payload = {
       title: title,
       body: body,
+      date: date,
+      username: ctx.username,
     };
 
     axios({
@@ -98,6 +102,7 @@ const ReminderSection = (props) => {
                 id={reminder._id}
                 title={reminder.title}
                 body={reminder.body}
+                date={reminder.date}
                 onDeleteReminder={deleteReminderFromList}
               />
             );

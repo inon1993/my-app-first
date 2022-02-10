@@ -27,7 +27,7 @@ export const AuthContextProvider = (props) => {
         console.log(response.data);
         if (response.data.msg === "User is authenticated.") {
           console.log("user is auth!");
-          setIsLoggedIn(true); /////////////////////////////////////////// maybe loginhandler in order to pass name from api (after i use find and pass the found users)
+          loginHandler(response.data);
         } else {
           console.log("user is not auth!");
         }

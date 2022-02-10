@@ -30,7 +30,7 @@ const SignUp = (props) => {
         } else {
           setIsUsernameExist(false);
           console.log("Data has been sent to the server.");
-          ctx.onLogin(payload);
+          ctx.onLogin(response.data);
           props.onClose();
         }
       })

@@ -36,6 +36,12 @@
   white-space: pre-wrap;
 }
 
+.reminder-date {
+  font-size: 0.8rem;
+  color: rgb(173, 173, 173);
+  margin: 0.2rem 0 0;
+}
+
 @media only screen and (min-width: 1050px) {
   .reminder-card {
     width: 50vw;
