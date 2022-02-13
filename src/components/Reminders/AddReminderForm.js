@@ -6,11 +6,16 @@ import classes from "./AddReminderForm.module.css";
 const AddReminderForm = (props) => {
   const [date, setDate] = useState("");
   const [enteredDate, setEnteredDate] = useState(date);
+  const [time, setTime] = useState("");
+  const [enteredTime, setEnteredTime] = useState(time);
 
   useEffect(() => {
     const current = new Date();
     let day = "";
     let month = "";
+    let hours = "";
+    let minutes = "";
+    // let seconds = "";
     if (current.getDate() < 10) {
       day = `0${current.getDate()}`;
     } else {
@@ -22,9 +27,29 @@ const AddReminderForm = (props) => {
       month = current.getMonth + 1;
     }
 
+    if (current.getHours() < 10) {
+      hours = `0${current.getHours()}`;
+    } else {
+      hours = current.getHours();
+    }
+    if (current.getMinutes() < 10) {
+      minutes = `0${current.getMinutes()}`;
+    } else {
+      minutes = current.getMinutes();
+    }
+    // if (current.getSeconds() < 10) {
+    //   seconds = `0${current.getSeconds()}`;
+    // } else {
+    //   seconds = current.getSeconds();
+    // }
+
+    setTime(hours + ":" + minutes /*+ ":" + seconds*/);
+
+    console.log(time);
+
     setDate(`${current.getFullYear()}-${month}-${day}`);
     console.log(date);
-  }, [date]);
+  }, [date, time]);
 
   const closeFormHandler = () => {
     props.onCloseForm();
@@ -45,7 +70,15 @@ const AddReminderForm = (props) => {
       reminderDate = enteredDate;
     }
 
-    props.onAddReminder(title, body, reminderDate);
+    let reminderTime = "";
+    if (enteredTime.trim().length === 0) {
+      console.log(time);
+      reminderTime = time;
+    } else {
+      reminderTime = enteredTime;
+    }
+
+    props.onAddReminder(title, body, reminderDate, reminderTime);
 
     titleRef.current.value = "";
     bodyRef.current.value = "";
@@ -53,6 +86,11 @@ const AddReminderForm = (props) => {
 
   const changeDateHandler = (event) => {
     setEnteredDate(event.target.value);
+  };
+
+  const changeTimeHandler = (event) => {
+    setEnteredTime(event.target.value);
+    console.log(enteredTime);
   };
 
   return (
@@ -82,6 +120,15 @@ const AddReminderForm = (props) => {
           defaultValue={date}
           min={date}
           onChange={changeDateHandler}
+        />
+        <input
+          type="time"
+          id="appt"
+          name="appt"
+          defaultValue={time}
+          min={time}
+          required
+          onChange={changeTimeHandler}
         />
         <div className={classes.buttons}>
           <button

@@ -36,11 +36,12 @@ const ReminderSection = (props) => {
     setIsClicked(false);
   };
 
-  const addReminderToListHandler = (title, body, date) => {
+  const addReminderToListHandler = (title, body, date, time) => {
     const payload = {
       title: title,
       body: body,
       date: date,
+      time: time,
       username: ctx.username,
     };
 
@@ -103,6 +104,7 @@ const ReminderSection = (props) => {
                 title={reminder.title}
                 body={reminder.body}
                 date={reminder.date}
+                time={reminder.time}
                 onDeleteReminder={deleteReminderFromList}
               />
             );
