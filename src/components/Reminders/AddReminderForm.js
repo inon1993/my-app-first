@@ -42,7 +42,23 @@ const AddReminderForm = (props) => {
     // } else {
     //   seconds = current.getSeconds();
     // }
-
+    // const dt = new Date(
+    //   Date.UTC(
+    //     current.getFullYear(),
+    //     current.getMonth(),
+    //     current.getDate(),
+    //     current.getHours(),
+    //     current.getMinutes(),
+    //     current.getSeconds()
+    //   )
+    // );
+    // const opt = {
+    //   weekday: "short",
+    //   year: "numeric",
+    //   month: "short",
+    //   day: "numeric",
+    // };
+    // console.log(dt.toLocaleDateString("en-US", opt));
     setTime(hours + ":" + minutes /*+ ":" + seconds*/);
 
     console.log(time);
@@ -113,23 +129,26 @@ const AddReminderForm = (props) => {
           ref={bodyRef}
           // maxLength="50"
         />
-        <label className={classes.date}>Pick a Date:</label>
-        <input
-          className={classes["date-input"]}
-          type="date"
-          defaultValue={date}
-          min={date}
-          onChange={changeDateHandler}
-        />
-        <input
-          type="time"
-          id="appt"
-          name="appt"
-          defaultValue={time}
-          min={time}
-          required
-          onChange={changeTimeHandler}
-        />
+        <label className={classes.date}>Pick a Date and Time:</label>
+        <div className={classes["date-time-inputs"]}>
+          <input
+            className={classes["date-input"]}
+            type="date"
+            defaultValue={date}
+            min={date}
+            onChange={changeDateHandler}
+          />
+          <input
+            className={classes["time-input"]}
+            type="time"
+            id="appt"
+            name="appt"
+            defaultValue={time}
+            min={time}
+            required
+            onChange={changeTimeHandler}
+          />
+        </div>
         <div className={classes.buttons}>
           <button
             className={classes["add-button"]}
