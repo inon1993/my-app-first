@@ -7,34 +7,58 @@ import AuthContext from "../../store/auth-context";
 
 import classes from "./ReminderSection.module.css";
 
+// const client = require('@sendgrid/client');
+
 const ReminderSection = (props) => {
   const ctx = useContext(AuthContext);
   const [isClicked, setIsClicked] = useState(false);
   const [reminderList, setReminderList] = useState([]);
-
+  
   useEffect(() => {
     getReminders();
   }, []);
-
+  
   const getReminders = () => {
     axios
-      .get("/api", { params: { username: ctx.username } })
-      .then((response) => {
-        setReminderList(response.data.reverse());
-        console.log("Data has been received.");
-      })
-      .catch(() => {
-        console.log("Error retrieving data!");
-      });
+    .get("/api", { params: { username: ctx.username } })
+    .then((response) => {
+      setReminderList(response.data.reverse());
+      console.log("Data has been received.");
+    })
+    .catch(() => {
+      console.log("Error retrieving data!");
+    });
   };
-
+  
   const openFormHandler = () => {
     setIsClicked(true);
   };
-
+  
   const closeFormHandler = () => {
     setIsClicked(false);
   };
+  
+  
+  // client.setApiKey(process.env.API_KEY_SENDGRID);
+  
+  // const headers = {
+  //   "on-behalf-of": "ReminderApp. This header generates the API call as if the subuser account was making the call."
+  // };
+
+  // const request = {
+  //   url: `https://api.sendgrid.com/v3/mail/batch`,
+  //   method: 'POST',
+  //   headers: headers
+  // }
+  
+  // client.request(request)
+  //   .then(([response, body]) => {
+  //     console.log(response.statusCode);
+  //     console.log(response.body);
+  //   })
+  //   .catch(error => {
+  //     console.error(error);
+  //   });
 
   const addReminderToListHandler = (title, body, date, time) => {
     const payload = {
