@@ -21,7 +21,7 @@
   width: 75%;
   flex-direction: column;
   padding-bottom: 2rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 303px) {

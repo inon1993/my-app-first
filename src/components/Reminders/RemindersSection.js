@@ -13,34 +13,33 @@ const ReminderSection = (props) => {
   const ctx = useContext(AuthContext);
   const [isClicked, setIsClicked] = useState(false);
   const [reminderList, setReminderList] = useState([]);
-  
+
   useEffect(() => {
     getReminders();
   }, []);
-  
+
   const getReminders = () => {
     axios
-    .get("/api", { params: { username: ctx.username } })
-    .then((response) => {
-      setReminderList(response.data.reverse());
-      console.log("Data has been received.");
-    })
-    .catch(() => {
-      console.log("Error retrieving data!");
-    });
+      .get("/api", { params: { username: ctx.username } })
+      .then((response) => {
+        setReminderList(response.data.reverse());
+        console.log("Data has been received.");
+      })
+      .catch(() => {
+        console.log("Error retrieving data!");
+      });
   };
-  
+
   const openFormHandler = () => {
     setIsClicked(true);
   };
-  
+
   const closeFormHandler = () => {
     setIsClicked(false);
   };
-  
-  
+
   // client.setApiKey(process.env.API_KEY_SENDGRID);
-  
+
   // const headers = {
   //   "on-behalf-of": "ReminderApp. This header generates the API call as if the subuser account was making the call."
   // };
@@ -50,7 +49,7 @@ const ReminderSection = (props) => {
   //   method: 'POST',
   //   headers: headers
   // }
-  
+
   // client.request(request)
   //   .then(([response, body]) => {
   //     console.log(response.statusCode);
@@ -60,12 +59,13 @@ const ReminderSection = (props) => {
   //     console.error(error);
   //   });
 
-  const addReminderToListHandler = (title, body, date, time) => {
+  const addReminderToListHandler = (title, body, date, time, color) => {
     const payload = {
       title: title,
       body: body,
       date: date,
       time: time,
+      color: color,
       username: ctx.username,
     };
 
@@ -129,6 +129,7 @@ const ReminderSection = (props) => {
                 body={reminder.body}
                 date={reminder.date}
                 time={reminder.time}
+                color={reminder.color}
                 onDeleteReminder={deleteReminderFromList}
               />
             );

@@ -5,6 +5,20 @@
   align-items: center;
   margin: 1rem 0;
   width: 80vw;
+  padding: 0;
+  border-radius: 25px;
+  /* padding: 1rem 0; */
+}
+
+.color-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  width: 80vw;
+  padding: 1rem;
+  border-radius: 25px;
 }
 
 .reminder {

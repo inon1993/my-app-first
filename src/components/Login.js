@@ -3,10 +3,12 @@ import LoginForm from "./LoginForm";
 import classes from "./Login.module.css";
 import axios from "axios";
 import AuthContext from "../store/auth-context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const Login = (props) => {
   const ctx = useContext(AuthContext);
+
+  const [isVaildLogin, setIsValidLogin] = useState(true);
 
   const onLoginCheck = (username, password) => {
     const payload = {
@@ -37,6 +39,7 @@ const Login = (props) => {
       })
       .catch(() => {
         console.log("Internal server error.");
+        setIsValidLogin(false);
       });
   };
 
@@ -48,7 +51,7 @@ const Login = (props) => {
     <div>
       <Card className={classes["login-card"]}>
         <h1 className={classes["login-hello"]}>Hello Friend!</h1>
-        <LoginForm onLoginForm={onLoginCheck} />
+        <LoginForm onLoginForm={onLoginCheck} onInvalidLogin={isVaildLogin} />
         {/* <LoginForm onLoginForm={props.onLogin} /> */}
         <div className={classes["sign-up-div"]}>
           <button className={classes["sign-up"]} onClick={signUpHandler}>

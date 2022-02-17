@@ -7,7 +7,8 @@
 
 .title,
 .body,
-.date {
+.date,
+.color {
   font-size: 1rem;
   text-align: left;
   font-weight: bold;
@@ -107,4 +108,52 @@
   .add-reminder-form {
     width: 360px;
   }
+}
+
+.reminder-color {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.color-ul {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.colorpick {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: greenyellow;
+  border: 2px solid black;
+  margin: 0 1rem;
+}
+
+.colorpick:focus {
+  /* width: 23px;
+  height: 23px; */
+  border: 3px solid #0b75d8;
+}
+
+.white {
+  background-color: white;
+}
+
+.lightblue {
+  background-color: lightblue;
+}
+
+.lightyellow {
+  background-color: lightyellow;
+}
+
+.lightpink {
+  background-color: lightpink;
+}
+
+.lightgreen {
+  background-color: lightgreen;
 }

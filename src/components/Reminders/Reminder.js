@@ -32,15 +32,20 @@ const Reminder = (props) => {
           onClose={closeReminderHandler}
         />
       )}
-      <Card className={classes["reminder-card"]}>
-        <div className={classes.reminder} onClick={openReminderHandler}>
-          <h1 className={classes["reminder-title"]}>{props.title}</h1>
-          <p className={classes["reminder-body"]}>{props.body}</p>
-          <p className={classes["reminder-date"]}>{props.date}</p>
-        </div>
+      <Card className={classes["reminder-card"]} background={props.color}>
+        <div
+          className={classes["color-div"]}
+          style={{ backgroundColor: props.color }}
+        >
+          <div className={classes.reminder} onClick={openReminderHandler}>
+            <h1 className={classes["reminder-title"]}>{props.title}</h1>
+            <p className={classes["reminder-body"]}>{props.body}</p>
+            <p className={classes["reminder-date"]}>{props.date}</p>
+          </div>
 
-        <div className={classes["del-area"]}>
-          <DeleteBtn onDelete={deleteHandler} />
+          <div className={classes["del-area"]}>
+            <DeleteBtn onDelete={deleteHandler} />
+          </div>
         </div>
       </Card>
     </div>

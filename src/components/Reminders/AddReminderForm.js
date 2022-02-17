@@ -8,6 +8,7 @@ const AddReminderForm = (props) => {
   const [enteredDate, setEnteredDate] = useState(date);
   const [time, setTime] = useState("");
   const [enteredTime, setEnteredTime] = useState(time);
+  const [isColor, setIsColor] = useState("white");
 
   useEffect(() => {
     const current = new Date();
@@ -94,7 +95,9 @@ const AddReminderForm = (props) => {
       reminderTime = enteredTime;
     }
 
-    props.onAddReminder(title, body, reminderDate, reminderTime);
+    props.onAddReminder(title, body, reminderDate, reminderTime, isColor);
+
+    setIsColor("white");
 
     titleRef.current.value = "";
     bodyRef.current.value = "";
@@ -107,6 +110,11 @@ const AddReminderForm = (props) => {
   const changeTimeHandler = (event) => {
     setEnteredTime(event.target.value);
     console.log(enteredTime);
+  };
+
+  const colorChange = (event) => {
+    setIsColor(event.target.value);
+    console.log(isColor);
   };
 
   return (
@@ -148,6 +156,41 @@ const AddReminderForm = (props) => {
             required
             onChange={changeTimeHandler}
           />
+        </div>
+        <div className={classes["reminder-color"]}>
+          <label className={classes.color}>Pick a color:</label>
+          <ul className={classes["color-ul"]}>
+            <button
+              className={`${classes.white} ${classes.colorpick}`}
+              type="button"
+              value="white"
+              onClick={colorChange}
+            ></button>
+            <button
+              className={`${classes.lightblue} ${classes.colorpick}`}
+              type="button"
+              value="lightblue"
+              onClick={colorChange}
+            ></button>
+            <button
+              className={`${classes.lightyellow} ${classes.colorpick}`}
+              type="button"
+              value="lightyellow"
+              onClick={colorChange}
+            ></button>
+            <button
+              className={`${classes.lightpink} ${classes.colorpick}`}
+              type="button"
+              value="lightpink"
+              onClick={colorChange}
+            ></button>
+            <button
+              className={`${classes.lightgreen} ${classes.colorpick}`}
+              type="button"
+              value="lightgreen"
+              onClick={colorChange}
+            ></button>
+          </ul>
         </div>
         <div className={classes.buttons}>
           <button
