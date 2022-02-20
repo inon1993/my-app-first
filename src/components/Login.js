@@ -50,6 +50,9 @@ const Login = (props) => {
   return (
     <div>
       <Card className={classes["login-card"]}>
+        <h1 className={classes.logo}>
+          Reminder<span className={classes.span}>App</span>
+        </h1>
         <h1 className={classes["login-hello"]}>Hello Friend!</h1>
         <LoginForm onLoginForm={onLoginCheck} onInvalidLogin={isVaildLogin} />
         {/* <LoginForm onLoginForm={props.onLogin} /> */}

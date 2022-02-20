@@ -29,7 +29,9 @@ const Dashboard = (props) => {
       style={{ backgroundImage: `url(${imgUrl})` }}
     >
       <nav className={classes.nav}>
-        <h1 className={classes.logo}>ReminderApp</h1>
+        <h1 className={classes.logo}>
+          Reminder<span className={classes.span}>App</span>
+        </h1>
         <LogoutBtn>Logout</LogoutBtn>
       </nav>
       <h1 className={classes["hello-user"]} style={{ color: titleColor }}>

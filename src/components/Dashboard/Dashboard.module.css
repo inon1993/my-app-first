@@ -33,3 +33,13 @@
   border: none;
   border-bottom: 1px solid #0b75d8;
 }
+
+.logo {
+  font-family: "Fugaz One", cursive;
+  transform: rotate(-3deg);
+}
+
+.span {
+  font-family: "Fugaz One", cursive;
+  text-decoration: underline #0b75d8;
+}

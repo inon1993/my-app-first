@@ -11,7 +11,7 @@
 .login-hello {
   text-align: center;
   padding: 0 0 0 0;
-  margin: 2rem 0 0 0;
+  margin: 0.2rem 0 0 0;
   font-size: 2.5rem;
   color: #131313;
 }
@@ -53,4 +53,15 @@
   .login-card {
     width: 80vw;
   }
+}
+
+.logo {
+  font-family: "Fugaz One", cursive;
+  transform: rotate(-3deg);
+  font-size: 1.3rem;
+}
+
+.span {
+  font-family: "Fugaz One", cursive;
+  text-decoration: underline #0b75d8;
 }
