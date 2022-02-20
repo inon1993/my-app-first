@@ -4,7 +4,7 @@ import SignUp from "./components/SignUp/SignUp";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AuthContext from "./store/auth-context";
 
-import './App.css';
+import classes from './App.module.css';
 
 function App() {
 
@@ -31,8 +31,9 @@ function App() {
 
   return (
 
-    <div className="app-body">
-      {!ctx.isLoggedIn && !isSignUp && <Login onLogin={loginHandler} onSignUp={signUpHandler} />}
+    <div className={classes['app-body']}>
+      {ctx.isLoading && <div className={classes['loading-background']}><div className={classes["lds-ellipsis"]}><div></div><div></div><div></div><div></div></div></div> /*<div className={classes['loading-background']}><h1 className={classes.loading}>Loading</h1></div>*/}
+      {!ctx.isLoggedIn && !isSignUp && !ctx.isLoading && <Login onLogin={loginHandler} onSignUp={signUpHandler} />}
       {isSignUp && <SignUp onClose={closeSignUpHandler}/>}
       {ctx.isLoggedIn && !isSignUp && <Dashboard username={user} />}
     </div>

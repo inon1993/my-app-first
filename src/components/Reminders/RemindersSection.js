@@ -13,17 +13,24 @@ const ReminderSection = (props) => {
   const ctx = useContext(AuthContext);
   const [isClicked, setIsClicked] = useState(false);
   const [reminderList, setReminderList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getReminders();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }, []);
 
   const getReminders = () => {
+    // setIsLoading(true);
     axios
       .get("/api", { params: { username: ctx.username } })
       .then((response) => {
         setReminderList(response.data.reverse());
         console.log("Data has been received.");
+        // setIsLoading(false);
       })
       .catch(() => {
         console.log("Error retrieving data!");
@@ -104,6 +111,7 @@ const ReminderSection = (props) => {
 
   return (
     <react.Fragment>
+      
       {!isClicked && (
         <button
           className={classes["open-form-button"]}
@@ -119,7 +127,8 @@ const ReminderSection = (props) => {
         />
       )}
       <div className={classes["list-section"]}>
-        <ul className={classes.ul}>
+        {isLoading && /*<h1 className={classes.loading}>Loading...</h1>*/ <div className={classes["lds-ellipsis"]}><div></div><div></div><div></div><div></div></div>}
+        {!isLoading && <ul className={classes.ul}>
           {reminderList.map((reminder) => {
             return (
               <Reminder
@@ -134,7 +143,7 @@ const ReminderSection = (props) => {
               />
             );
           })}
-        </ul>
+        </ul>}
       </div>
     </react.Fragment>
   );

@@ -7,12 +7,14 @@ const AuthContext = React.createContext({
   email: "",
   username: "",
   isLoggedIn: false,
+  isLoading: false,
   onLogin: () => {},
   onLogout: () => {},
 });
 
 export const AuthContextProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const[isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState({
     fname: "",
     lname: "",
@@ -21,6 +23,10 @@ export const AuthContextProvider = (props) => {
   });
 
   useEffect(() => {
+    if(localStorage.getItem('isLoggedIn') === '1') {
+      // console.log('RRRRRRRRRRRRRRRRRRRRRRRRRR');
+      setIsLoading(true);
+    
     axios
       .get("/api/auth")
       .then((response) => {
@@ -28,18 +34,31 @@ export const AuthContextProvider = (props) => {
         if (response.data.msg === "User is authenticated.") {
           console.log("user is auth!");
           loginHandler(response.data);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 500);
         } else {
           console.log("user is not auth!");
+          setIsLoading(false);
+          setIsLoggedIn(false); 
+          localStorage.removeItem('isLoggedIn');
         }
       })
       .catch((err) => {
         console.log(err);
+        setIsLoading(false);
+        localStorage.removeItem('isLoggedIn');
       });
+    } else {
+      setIsLoading(false);
+      localStorage.removeItem('isLoggedIn');
+      }
   }, []);
 
   const loginHandler = (data) => {
     setUserData(data);
     setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', '1');
   };
 
   const logoutHandler = () => {
@@ -48,6 +67,7 @@ export const AuthContextProvider = (props) => {
       .then((response) => {
         if (response.data.msg === "Logout is successfull.") {
           setIsLoggedIn(false);
+          localStorage.removeItem('isLoggedIn');
         } else {
           console.log("logout is not successfull.");
         }
@@ -65,6 +85,7 @@ export const AuthContextProvider = (props) => {
         email: userData.email,
         username: userData.username,
         isLoggedIn: isLoggedIn,
+        isLoading: isLoading,
         onLogin: loginHandler,
         onLogout: logoutHandler,
       }}
