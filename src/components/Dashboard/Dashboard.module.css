@@ -19,5 +19,17 @@
 }
 
 .hello-user {
+  margin-top: 7.5rem;
   font-size: 3rem;
+}
+
+.nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #0b75d8;
 }
