@@ -34,6 +34,12 @@ const Dashboard = (props) => {
         </h1>
         <LogoutBtn>Logout</LogoutBtn>
       </nav>
+      <nav className={classes.nav2}>
+        <h1 className={classes.logo}>
+          Reminder<span className={classes.span}>App</span>
+        </h1>
+        <LogoutBtn />
+      </nav>
       <h1 className={classes["hello-user"]} style={{ color: titleColor }}>
         Hello, {user}
       </h1>

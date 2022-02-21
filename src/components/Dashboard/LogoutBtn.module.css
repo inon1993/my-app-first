@@ -20,8 +20,23 @@
   background: #ff1919;
 }
 
-/* still not working */
 .icon {
-  size: 50rem;
+  font-size: 1.5rem;
   padding: 1rem 1rem 1rem 0.5rem;
+  margin: 0;
+}
+
+@media only screen and (max-width: 500px) {
+  .text {
+    display: none;
+  }
+  .icon {
+    font-size: 1.3rem;
+    padding: 0.7rem;
+  }
+  .logout {
+    height: 47px;
+    border-radius: 13px;
+    padding: 0;
+  }
 }

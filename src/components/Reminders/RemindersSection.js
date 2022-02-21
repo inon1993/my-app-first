@@ -14,6 +14,7 @@ const ReminderSection = (props) => {
   const [isClicked, setIsClicked] = useState(false);
   const [reminderList, setReminderList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     setIsLoading(true);
@@ -67,6 +68,8 @@ const ReminderSection = (props) => {
   //   });
 
   const addReminderToListHandler = (title, body, date, time, color) => {
+    setSearchText('');
+    
     const payload = {
       title: title,
       body: body,
@@ -109,6 +112,10 @@ const ReminderSection = (props) => {
       });
   };
 
+  const searchHandler = event => {
+    setSearchText(event.target.value);
+  }
+
   return (
     <react.Fragment>
       
@@ -127,9 +134,21 @@ const ReminderSection = (props) => {
         />
       )}
       <div className={classes["list-section"]}>
-        {isLoading && /*<h1 className={classes.loading}>Loading...</h1>*/ <div className={classes["lds-ellipsis"]}><div></div><div></div><div></div><div></div></div>}
+        <div className={classes['search-wrapper']}>
+          <input className={classes.search} type="text" placeholder="Search" onChange={searchHandler} />
+        </div>
+        {/* <div className={classes['reminders-wrapper']}> */}
+
+        
+        {isLoading && <div className={classes["lds-ellipsis"]}><div></div><div></div><div></div><div></div></div>}
         {!isLoading && <ul className={classes.ul}>
-          {reminderList.map((reminder) => {
+          {reminderList.filter((val) => {
+            if(searchText === "") {
+              return val;
+            } else if(val.title.toLowerCase().includes(searchText.toLowerCase()) || val.title.toLowerCase().includes(searchText.toLowerCase())) {
+              return val;
+            }
+          }).map((reminder) => {
             return (
               <Reminder
                 key={reminder._id}
@@ -144,7 +163,8 @@ const ReminderSection = (props) => {
             );
           })}
         </ul>}
-      </div>
+        </div>
+      {/* </div> */}
     </react.Fragment>
   );
 };

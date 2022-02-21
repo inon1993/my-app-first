@@ -14,7 +14,7 @@ const DeleteBtn = (props) => {
       type="button"
       onClick={deleteReminderHandler}
     >
-      <FontAwesomeIcon size="2x" icon={faTrashAlt} className={classes.icon} />
+      <p className={classes.icon}><FontAwesomeIcon icon={faTrashAlt} /></p>
     </button>
   );
 };

@@ -16,8 +16,8 @@ const LogoutBtn = (props) => {
       type="button"
       onClick={ctx.onLogout}
     >
-      <FontAwesomeIcon size="2x" icon={faDoorOpen} className={classes.icon} />
-      {props.children}
+      <p className={classes.icon}><FontAwesomeIcon /*size="2x"*/ icon={faDoorOpen} /></p>
+      <p className={classes.text}>Logout</p>
     </button>
   );
 };
