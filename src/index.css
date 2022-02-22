@@ -1,5 +1,5 @@
 body {
-  background: url(../public/img/login-wallpaper.jpg);
+  background: url(../public/img/b1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -10,9 +10,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  animation: slide 20s infinite;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@keyframes slide {
+  0% {
+    background: url(../public/img/b1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  25% {
+    background: url(../public/img/b2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  50% {
+    background: url(../public/img/b3.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  75% {
+    background: url(../public/img/b4.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
 }

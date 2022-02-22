@@ -185,6 +185,7 @@ const SignUpForm = (props) => {
         }`}
         type="text"
         id="fname"
+        autoComplete="off"
         value={fnameState.value}
         onChange={fnameChangeHandler}
         onBlur={validateFnameHandler}
@@ -196,6 +197,7 @@ const SignUpForm = (props) => {
         }`}
         type="text"
         id="lname"
+        autoComplete="off"
         value={lnameState.value}
         onChange={lnameChangeHandler}
         onBlur={validateLnameHandler}
@@ -207,6 +209,7 @@ const SignUpForm = (props) => {
         }`}
         type="email"
         id="email"
+        autoComplete="off"
         value={emailState.value}
         onChange={emailChangeHandler}
         onBlur={validateEmailHandler}
@@ -218,6 +221,7 @@ const SignUpForm = (props) => {
         }`}
         type="text"
         id="username"
+        autoComplete="off"
         value={usernameState.value}
         onChange={usernameChangeHandler}
         onBlur={validateUsernameHandler}
@@ -234,6 +238,7 @@ const SignUpForm = (props) => {
         }`}
         type="text"
         id="password"
+        autoComplete="off"
         value={passwordState.value}
         onChange={passwordChangeHandler}
         onBlur={validatePasswordHandler}

@@ -14,6 +14,7 @@
 .password {
   font-size: 1rem;
   font-weight: bold;
+  color: #518679;
 }
 
 .fname-input,
@@ -22,13 +23,16 @@
 .un-input,
 .pw-input {
   border: none;
-  border-bottom: 1px solid #000;
-  background: transparent;
+  /* border-bottom: 1px solid #000; */
+  /* background: transparent; */
   outline: none;
   height: 30px;
   color: #131313;
   font-size: 1rem;
-  margin-bottom: 1.2rem;
+  margin: 0.3rem 0 1.2rem;
+  padding: 3px 10px;
+  background: #edf3f3;
+  border-radius: 13px;
 }
 
 .buttons {
@@ -44,7 +48,7 @@
   border: none;
   outline: none;
   height: 40px;
-  background: #0b75d8;
+  background: linear-gradient(to right, #ff5804 0%, #ff0146 100%);
   font-size: 18px;
   color: white;
   border-radius: 20px;
@@ -53,7 +57,7 @@
 }
 
 .sign-up-button:hover {
-  background: #0d87fa;
+  background: linear-gradient(to left, #ff5804 0%, #ff0146 100%);
 }
 
 .close-button {
