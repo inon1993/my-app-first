@@ -118,7 +118,7 @@ const AddReminderForm = (props) => {
   };
 
   return (
-    <Card>
+    <Card className={classes['card-form']}>
       <form
         className={classes["add-reminder-form"]}
         onSubmit={addReminderHandler}

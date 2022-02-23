@@ -34,7 +34,7 @@
 .actions button {
   /* font: inherit; */
   cursor: pointer;
-  background-color: #0b75d8;
+  background-color: #ff5804;
   color: white;
   border: none;
   font-size: 1rem;
@@ -45,7 +45,7 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: #0d87fa;
+  background-color: #ff0146;
 }
 
 /* .actions .button--alt {

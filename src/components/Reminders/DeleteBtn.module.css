@@ -7,14 +7,14 @@
   border-radius: 20px;
   border: none;
   outline: none;
-  background: #0b75d8;
+  background: #ff5804;
   color: white;
   cursor: pointer;
   padding: 0;
 }
 
 .delete:hover {
-  background: #0d87fa;
+  background: #ff0146;
 }
 
 .icon {

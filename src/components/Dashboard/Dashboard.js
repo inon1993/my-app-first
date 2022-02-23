@@ -41,7 +41,7 @@ const Dashboard = (props) => {
         <LogoutBtn />
       </nav>
       <h1 className={classes["hello-user"]} style={{ color: titleColor }}>
-        Hello, {user}
+        Hello, <span className={classes.name}>{user}</span>
       </h1>
       <ReminderSection />
     </div>
