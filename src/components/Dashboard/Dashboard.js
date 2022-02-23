@@ -13,10 +13,10 @@ const Dashboard = (props) => {
   useEffect(() => {
     const time = new Date().getHours();
     if (time > 17 || time < 6) {
-      setImgUrl("/img/night.jpg");
+      setImgUrl("/img/app-b2.jpg");
       setTitleColor("white");
     } else {
-      setImgUrl("/img/day.jpg");
+      setImgUrl("/img/app-b1.jpg");
       setTitleColor("black");
     }
   });

@@ -1,5 +1,5 @@
 body {
-  background: url(../public/img/b1.jpg);
+  background: url(../public/img/app-b1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -18,7 +18,7 @@ code {
     monospace;
 }
 
-@keyframes slide {
+/* @keyframes slide {
   0% {
     background: url(../public/img/b1.jpg);
     background-size: cover;
@@ -43,4 +43,4 @@ code {
     background-position: center;
     background-attachment: fixed;
   }
-}
+} */
