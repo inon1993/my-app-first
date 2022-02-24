@@ -13,10 +13,12 @@ const Dashboard = (props) => {
   useEffect(() => {
     const time = new Date().getHours();
     if (time > 17 || time < 6) {
-      setImgUrl("/img/app-b2.jpg");
+      // setImgUrl("/img/app-b2.jpg");
+      setImgUrl('#06241d');
       setTitleColor("white");
     } else {
-      setImgUrl("/img/app-b1.jpg");
+      // setImgUrl("/img/app-b1.jpg");
+      setImgUrl('#edf3f3')
       setTitleColor("black");
     }
   });
@@ -26,7 +28,8 @@ const Dashboard = (props) => {
   return (
     <div
       className={classes.dashboard}
-      style={{ backgroundImage: `url(${imgUrl})` }}
+      // style={{ backgroundImage: `url(${imgUrl})` }}
+      style={{ backgroundColor: `${imgUrl}` }}
     >
       <nav className={classes.nav}>
         <h1 className={classes.logo}>

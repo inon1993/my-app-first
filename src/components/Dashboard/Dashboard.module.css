@@ -44,6 +44,7 @@
 }
 
 .logo {
+  color: white;
   font-size: 2rem;
   font-family: "Fugaz One", cursive;
   transform: rotate(-3deg);
@@ -51,6 +52,7 @@
 }
 
 .span {
+  color: white;
   font-family: "Fugaz One", cursive;
   text-decoration: underline #ff5804;
 }
