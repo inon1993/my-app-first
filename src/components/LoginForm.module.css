@@ -38,7 +38,9 @@
   border: none;
   outline: none;
   height: 40px;
-  background: linear-gradient(to right, #ff5804 0%, #ff0146 100%);
+  background-image: linear-gradient(to right, #ff5804 0%, #ff0146 50%, #ff5804 100%);
+  background-size: 200%;
+  background-position: left;
   font-size: 18px;
   color: white;
   border-radius: 20px;
@@ -46,12 +48,13 @@
   /* box-shadow: rgba(255, 87, 4, 0.75) 0px 25px 50px -12px; */
   box-shadow: rgba(255, 87, 4, 0.75) 0px 13px 27px -8px,
     rgba(255, 1, 70, 0.8) 0px 8px 16px -11px;
+  transition: 1s;
 
   /* animation: slide 20s infinite; */
 }
 
 .login-button:hover {
-  background: linear-gradient(to left, #ff5804 0%, #ff0146 100%);
+  background-position: right;
 }
 
 .invalid-login-msg {

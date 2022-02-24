@@ -11,6 +11,7 @@
   color: white;
   cursor: pointer;
   padding: 0;
+  transition: 0.3s;
 }
 
 .delete:hover {

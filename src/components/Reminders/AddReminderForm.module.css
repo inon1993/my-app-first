@@ -96,16 +96,21 @@
   border: none;
   outline: none;
   height: 40px;
-  background: linear-gradient(to right, #ff5804 0%, #ff0146 100%);
+  background-image: linear-gradient(to right, #ff5804 0%, #ff0146 50%, #ff5804 100%);
+  background-size: 200%;
+  background-position: left;
   font-size: 1rem;
   color: white;
   border-radius: 20px;
   cursor: pointer;
+  box-shadow: rgba(255, 87, 4, 0.75) 0px 13px 27px -8px,
+    rgba(255, 1, 70, 0.8) 0px 8px 16px -11px;
+  transition: 1s;
   /* margin-right: 1rem; */
 }
 
 .add-button:hover {
-  background: linear-gradient(to left, #ff5804 0%, #ff0146 100%);
+  background-position: right;
 }
 
 .close-button {
@@ -120,6 +125,7 @@
   color: #131313;
   border-radius: 20px;
   cursor: pointer;
+  transition: 0.3s;
   /* margin-left: 1rem; */
 }
 
